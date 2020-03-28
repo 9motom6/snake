@@ -211,6 +211,7 @@ fn main() {
     let mut window: Window = WindowSettings::new("Snake", [WIDTH, HEIGHT])
         .graphics_api(opengl)
         .exit_on_esc(true)
+        .resizable(false)
         .build()
         .unwrap();
 
@@ -230,7 +231,7 @@ fn main() {
         },
     };
 
-    let mut events = Events::new(EventSettings::new()).ups(10);
+    let mut events = Events::new(EventSettings::new()).ups(9);
     while let Some(e) = events.next(&mut window) {
         if let Some(args) = e.render_args() {
             game.render(&args);
